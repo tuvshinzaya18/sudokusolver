@@ -1,3 +1,5 @@
+def chpr():
+    print("hello")
 def check0(table):
     checker=False
     for row50 in table:
@@ -55,13 +57,13 @@ def first(tablefirst,boxfindfirst,full):
     boxfind=boxfindfirst
     boxfindfull=full
     for i in range(0,9):
-            coordinates10=boxfindfull[i]
-            for cords10 in coordinates10:
-                row20=cords10[0]
-                column20=cords10[1]
-                numb=table[row20][column20]
-                if numb in [1,2,3,4,5,6,7,8,9]:
-                    boxfind[i].remove([row20,column20])
+        coordinates10=boxfindfull[i]
+        for cords10 in coordinates10:
+            row20=cords10[0]
+            column20=cords10[1]
+            numb=table[row20][column20]
+            if numb in [1,2,3,4,5,6,7,8,9]:
+                boxfind[i].remove([row20,column20])
     while True:
         checker2=False
         checker1=True
@@ -147,18 +149,24 @@ def second(tablesec,boxfindsec):
     answer.append(checkerbig1)
     return answer
 def main(table):
-    global boxfindnew
     returnanswer=False
     #boxfind keeps track of empty cells
-    boxfind=[]
-    for i in range(0,9):
-        boxfind.append([])
-    for i in range(0,9):
-        for n in range(0,9):
-            boxn=(i//3)*3+n//3
-            boxfind[boxn].append([i,n])
     #boxfindnew contains list of cords of cells for each boxs 
     while True:
+        boxfind=[]
+        for i in range(0,9):
+            boxfind.append([])
+        for i in range(0,9):
+            for n in range(0,9):
+                boxn=(i//3)*3+n//3
+                boxfind[boxn].append([i,n])
+        boxfindnew=[]
+        for i in range(0,9):
+            boxfindnew.append([])
+        for i in range(0,9):
+            for n in range(0,9):
+                boxn=(i//3)*3+n//3
+                boxfindnew[boxn].append([i,n])
         checkerforsure=False
         answer1=first(table,boxfind,boxfindnew)
         table=answer1[0]
@@ -176,12 +184,12 @@ def main(table):
             returnanswer=True
             print("solved")
             break
+        printtable(table)
         if not checkerforsure:
             returnanswer=False
             print("can't solve it")
             break
-            
-    printtable(table)
+        printtable(table)
     return returnanswer
 #table[i][n] i-row n-column
 table=[]

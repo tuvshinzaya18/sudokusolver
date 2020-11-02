@@ -39,7 +39,6 @@ def checkcolumn(column,tablerow):
             numbers.remove(num)
     return numbers
 def checkbox(box,tablebox):
-    global boxfindnew
     table=tablebox
     cord=boxfindnew[box]
     numbers=[1,2,3,4,5,6,7,8,9]
